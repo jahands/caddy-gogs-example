@@ -1,0 +1,25 @@
+version: '2'
+services:
+  gogs:
+    restart: always
+    image: gogs/gogs
+    networks:
+    - backend
+    volumes:
+    - /var/gogs/data:/data
+    ports:
+    - "22:22"
+
+  caddy:
+    restart: always
+    build: caddy/
+    networks:
+    - frontend
+    - backend
+    ports:
+    - "80:80"
+    - "443:443"
+
+networks:
+  frontend:
+  backend:

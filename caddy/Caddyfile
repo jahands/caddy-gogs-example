@@ -1,0 +1,7 @@
+gogs.gogit.io {
+    proxy / gogs:3000 {
+        transparent
+    }
+    log stdout
+    errors stdout
+}
